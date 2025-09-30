@@ -1,0 +1,104 @@
+* {
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    background-color: #282c34;
+    padding: 1rem;
+    color: white;
+}
+
+.main {
+    flex: 1;
+    overflow: auto;
+    height: 80vh;
+}
+
+.footer {
+    background-color: #282c34;
+    padding: 1rem;
+    color: white;
+    z-index: 2;
+}
+
+.mode {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* spacing between toggle and text */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* hide default checkbox */
+.mode input[type="checkbox"] {
+    display: none;
+}
+
+.mode:has(input[type="checkbox"]:disabled) {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* toggle track */
+.toggle {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* toggle knob */
+.toggle::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 19px;
+    height: 19px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+/* checked state (night mode) */
+input:checked + .toggle {
+    background: #333;
+}
+
+input:checked + .toggle::after {
+    transform: translateX(25px);
+}
+
+.headerBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}

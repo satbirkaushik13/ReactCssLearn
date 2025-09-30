@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #282c34;
+    color: white;
+    gap: 10px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar a:hover,
+.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}

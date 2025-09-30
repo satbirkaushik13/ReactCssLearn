@@ -1,0 +1,303 @@
+.landscape {
+    display: flex;
+    flex-direction: column;
+}
+
+.landscapeElements {
+    height: 220px;
+}
+
+.skySection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sky {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: end;
+    gap: 5px;
+    padding: 10px;
+    width: 100%;
+    z-index: 1;
+}
+
+.day .sky {
+    background: linear-gradient(to bottom, #87ceeb, #ffffff);
+}
+
+.night .sky {
+    background: linear-gradient(to bottom, #000000, #001d4a);
+}
+
+.welcomeName {
+    position: absolute;
+    z-index: 3;
+    font-size: 50px;
+    font-family: fantasy;
+    font-style: italic;
+    animation: blink 0.7s steps(1) infinite;
+}
+
+.night .welcomeName {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #c3c2a9,
+        0 0 30px #c3c2a9, 0 0 40px #c3c2a9, 0 0 50px #c3c2a9, 0 0 60px #c3c2a9;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.night .stars {
+    position: relative;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 6s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+/* Random positions + delay for 8 stars */
+.night .stars:nth-child(1) {
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+.night .stars:nth-child(2) {
+    top: -20%;
+    left: 45%;
+    animation-delay: 0.5s;
+}
+.night .stars:nth-child(3) {
+    top: 50%;
+    left: 40%;
+    animation-delay: 1s;
+}
+.night .stars:nth-child(4) {
+    top: 20%;
+    left: 50%;
+    animation-delay: 1.5s;
+}
+.night .stars:nth-child(5) {
+    top: 0;
+    left: 60%;
+    animation-delay: 2s;
+}
+.night .stars:nth-child(6) {
+    top: -150%;
+    left: 0;
+    animation-delay: 2.5s;
+}
+.night .stars:nth-child(7) {
+    top: -140%;
+    left: 80%;
+    animation-delay: 3s;
+}
+.night .stars:nth-child(8) {
+    top: 60%;
+    left: 35%;
+    animation-delay: 3.5s;
+}
+
+@keyframes shine {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.day .birds {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: transparent;
+    animation: fly 10s linear infinite;
+}
+
+.day .birds:nth-child(1),
+.day .birds:nth-child(5) {
+    top: 40%;
+    animation-delay: 0s;
+}
+.day .birds:nth-child(2) {
+    top: 50%;
+    animation-delay: -4s;
+}
+.day .birds:nth-child(3) {
+    top: 60%;
+    animation-delay: -8s;
+}
+.day .birds:nth-child(4) {
+    top: 45%;
+    animation-delay: -10s;
+}
+
+/* Left wing */
+.day .birds::before,
+.day .birds::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid #000;
+    border-radius: 50%;
+    animation: flap 1s ease-in-out infinite;
+}
+
+/* left side */
+.day .birds::before {
+    left: 0;
+    transform-origin: right center;
+}
+
+/* right side */
+.day .birds::after {
+    right: 0;
+    transform-origin: left center;
+}
+
+@keyframes flap {
+    0%,
+    100% {
+        transform: rotate(20deg);
+    }
+    50% {
+        transform: rotate(-20deg);
+    }
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(110vw);
+    }
+}
+
+.mountains {
+    display: flex;
+    gap: 5px;
+    z-index: 2;
+}
+
+.day .mountains {
+    background: #fff;
+}
+
+.night .mountains {
+    background: linear-gradient(to bottom, #001d4a, #000000);
+}
+
+.mountain {
+    background: linear-gradient(to top, #654321, #228b22);
+    width: 100%;
+    transform: rotate(45deg);
+    margin-bottom: -20%;
+}
+
+.sun {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: 200px;
+    right: 200px;
+}
+
+.day .sun {
+    background: radial-gradient(circle, #ffdd00, #ff9900);
+}
+
+.night .sun {
+    background: radial-gradient(circle, #ddddd6, #c3c2a9);
+    box-shadow: 0 0 15px 5px rgba(255, 255, 224, 0.5);
+}
+
+.landRiver {
+    display: grid;
+    z-index: 3;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.land {
+    background: #228b22;
+}
+.land1 {
+    grid-column: 1/3;
+}
+.land2 {
+    border-top: 5px solid #87ceeb;
+}
+
+.river {
+    background: #87ceeb;
+    animation: flow 1s linear infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes flow {
+    0% {
+        transform: translate(0, 0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(2px, -2px);
+    }
+    60% {
+        transform: translate(-2px, -2px);
+    }
+    80% {
+        transform: translate(2px, 2px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.waterMark {
+    border-bottom: 1px solid #000;
+    height: 20px;
+    width: 50px;
+    border-radius: 50%;
+    animation: ripple 1s ease-in-out infinite;
+}
+
+@keyframes ripple {
+    0% {
+        opacity: 0.5;
+        transform: rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(-20deg);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(-30deg);
+    }
+}
