@@ -19,6 +19,9 @@ function NavBar() {
             <NavLink to="/reducers" activeClassName="active">
                 Reducer
             </NavLink>
+            <NavLink to="/snake" activeClassName="active">
+                Snake Game
+            </NavLink>
         </nav>
     );
 }

@@ -8,6 +8,7 @@ import Reducer from "./components/reducer/Reducer";
 import Redux from "./components/redux/Redux";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleMode } from "./store/slices/modeSlice";
+import SnakeGame from "./components/snake/Snake";
 
 function App() {
     const dispatch = useDispatch();
@@ -43,6 +44,7 @@ function App() {
                     <Route path="/state" element={<State />} />
                     <Route path="/reducers" element={<Reducer />} />
                     <Route path="/redux" element={<Redux />} />
+                    <Route path="/snake" element={<SnakeGame />} />
                 </Routes>
             </div>
             <div className="footer">Footer</div>
